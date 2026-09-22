@@ -1,7 +1,45 @@
+"use client";
+
+import { useState } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/src/components/ui/Button";
 
 export default function Contact() {
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+
+    const formData = new FormData(e.currentTarget);
+    // Paste your Web3Forms Access Key here
+    formData.append("access_key", "YOUR-ACCESS-KEY-HERE");
+    formData.append("from_name", "Synboom Website Contact");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        alert(
+          "Something went wrong. Please reach out via support@synboomlimited.com.",
+        );
+      }
+    } catch {
+      alert(
+        "Unable to send inquiry. Please email support@synboomlimited.com directly.",
+      );
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <div className="py-24 px-4 container mx-auto max-w-4xl">
       <h1 className="text-4xl font-bold text-slate-900 mb-4">
@@ -55,46 +93,51 @@ export default function Contact() {
           <h3 className="font-semibold text-slate-900 mb-4">
             Send a Direct Inquiry
           </h3>
-          <form
-            className="space-y-4"
-            action="mailto:support@synboom.com"
-            method="post"
-            encType="text/plain"
-          >
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
-                Name
-              </label>
-              <input
-                type="text"
-                className="w-full border border-slate-300 rounded-md p-2 text-sm focus:ring-2 focus:ring-slate-900 outline-none"
-                required
-              />
+          {submitted ? (
+            <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-lg text-emerald-800 text-sm">
+              Thank you for contacting Synboom Limited. Your inquiry has been
+              routed to our team, and we will respond shortly.
             </div>
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
-                Email
-              </label>
-              <input
-                type="email"
-                className="w-full border border-slate-300 rounded-md p-2 text-sm focus:ring-2 focus:ring-slate-900 outline-none"
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
-                Message
-              </label>
-              <textarea
-                rows={4}
-                className="w-full border border-slate-300 rounded-md p-2 text-sm focus:ring-2 focus:ring-slate-900 outline-none"
-                required
-              ></textarea>
-            </div>
-            <Button type="submit" className="w-full">
-              Send Message
-            </Button>
-          </form>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-1">
+                  Name
+                </label>
+                <input
+                  name="name"
+                  type="text"
+                  className="w-full border border-slate-300 rounded-md p-2 text-sm focus:ring-2 focus:ring-slate-900 outline-none"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-1">
+                  Email
+                </label>
+                <input
+                  name="email"
+                  type="email"
+                  className="w-full border border-slate-300 rounded-md p-2 text-sm focus:ring-2 focus:ring-slate-900 outline-none"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-1">
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  rows={4}
+                  className="w-full border border-slate-300 rounded-md p-2 text-sm focus:ring-2 focus:ring-slate-900 outline-none"
+                  required
+                ></textarea>
+              </div>
+              <Button type="submit" disabled={loading} className="w-full">
+                {loading ? "Sending..." : "Send Message"}
+              </Button>
+            </form>
+          )}
         </div>
       </div>
     </div>
