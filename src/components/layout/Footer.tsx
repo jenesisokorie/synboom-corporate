@@ -46,7 +46,7 @@ export function Footer() {
         <div className="space-y-4">
           <h3 className="font-semibold text-slate-900 text-base">Contact</h3>
           <ul className="grid gap-3 text-sm">
-            <li>support@synboom.com</li>
+            <li>support@synboomlimited.com</li>
             <li>+234 (0) 7019162233</li>
           </ul>
         </div>

@@ -120,7 +120,7 @@ export default function PrivacyPolicy() {
         <p>
           If you have any questions regarding this Privacy Policy or wish to
           exercise your data rights, please contact us at{" "}
-          <code>support@synboom.com</code>.
+          <code>support@synboomlimited.com</code>.
         </p>
       </div>
     </div>

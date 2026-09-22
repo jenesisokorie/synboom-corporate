@@ -18,7 +18,9 @@ export default function Contact() {
             <Mail className="w-6 h-6 text-slate-400 mt-1" />
             <div>
               <h3 className="font-semibold text-slate-900">Email</h3>
-              <p className="text-slate-600 text-sm">support@synboom.com</p>
+              <p className="text-slate-600 text-sm">
+                support@synboomlimited.com
+              </p>
             </div>
           </div>
           <div className="flex gap-4 items-start">
