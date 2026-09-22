@@ -14,7 +14,7 @@ export default function Contact() {
 
     const formData = new FormData(e.currentTarget);
     // Paste your Web3Forms Access Key here
-    formData.append("access_key", "YOUR-ACCESS-KEY-HERE");
+    formData.append("access_key", "3e922913-6dd3-4630-b3ac-c54ed5264eb8");
     formData.append("from_name", "Synboom Website Contact");
 
     try {
