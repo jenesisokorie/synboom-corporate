@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -36,26 +37,32 @@ export function Navbar() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-8">
           <Link
+            href="/products"
+            className="text-sm font-semibold text-slate-600 hover:text-[#000066] transition-colors"
+          >
+            Products
+          </Link>
+          <Link
             href="/about"
-            className="text-sm font-medium text-slate-600 hover:text-[#000066] transition-colors"
+            className="text-sm font-semibold text-slate-600 hover:text-[#000066] transition-colors"
           >
             About
           </Link>
           <Link
             href="/privacy"
-            className="text-sm font-medium text-slate-600 hover:text-[#000066] transition-colors"
+            className="text-sm font-semibold text-slate-600 hover:text-[#000066] transition-colors"
           >
             Privacy
           </Link>
           <Link
             href="/terms"
-            className="text-sm font-medium text-slate-600 hover:text-[#000066] transition-colors"
+            className="text-sm font-semibold text-slate-600 hover:text-[#000066] transition-colors"
           >
             Terms
           </Link>
           <Link
             href="/contact"
-            className="text-sm font-medium text-slate-600 hover:text-[#000066] transition-colors"
+            className="text-sm font-semibold text-slate-600 hover:text-[#000066] transition-colors"
           >
             Contact
           </Link>
@@ -76,40 +83,55 @@ export function Navbar() {
       </div>
 
       {/* Mobile Navigation Dropdown */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full border-b border-slate-200 bg-white shadow-lg px-4 py-6 space-y-6">
-          <nav className="flex flex-col gap-5">
-            <Link
-              href="/about"
-              className="text-base font-medium text-slate-600 hover:text-[#000066]"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href="/privacy"
-              className="text-base font-medium text-slate-600 hover:text-[#000066]"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms"
-              className="text-base font-medium text-slate-600 hover:text-[#000066]"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Terms of Service
-            </Link>
-            <Link
-              href="/contact"
-              className="text-base font-medium text-slate-600 hover:text-[#000066]"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Contact
-            </Link>
-          </nav>
-        </div>
-      )}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden absolute top-16 left-0 w-full border-b border-slate-200 bg-white shadow-lg px-4 py-6 space-y-6"
+          >
+            <nav className="flex flex-col gap-5">
+              <Link
+                href="/products"
+                className="text-base font-semibold text-slate-600 hover:text-[#000066] transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Products
+              </Link>
+              <Link
+                href="/about"
+                className="text-base font-semibold text-slate-600 hover:text-[#000066] transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                About
+              </Link>
+              <Link
+                href="/privacy"
+                className="text-base font-semibold text-slate-600 hover:text-[#000066] transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/terms"
+                className="text-base font-semibold text-slate-600 hover:text-[#000066] transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Terms of Service
+              </Link>
+              <Link
+                href="/contact"
+                className="text-base font-semibold text-slate-600 hover:text-[#000066] transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

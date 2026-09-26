@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/src/components/ui/Button";
 import { ArrowRight, Smartphone, Ruler, Database, Cloud } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 
 export default function Home() {
-  // --- Animation Variants ---
   const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -37,9 +37,8 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen font-sans">
-      {/* Hero Section - Deep Navy Brand Color */}
+      {/* Hero Section */}
       <section className="relative bg-[#000066] text-white py-32 px-4 md:px-8 overflow-hidden">
-        {/* Subtle Background Glow/Gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#000066] via-[#000044] to-[#990000]/20 opacity-80" />
 
         <motion.div
@@ -136,7 +135,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="bg-white rounded-3xl border border-slate-200 p-8 md:p-12 shadow-sm grid md:grid-cols-2 gap-12 items-center">
+          <div className="bg-white rounded-3xl border border-slate-200 p-6 md:p-12 shadow-sm grid lg:grid-cols-2 gap-12 items-center">
             {/* Features List */}
             <motion.div
               initial="hidden"
@@ -198,46 +197,53 @@ export default function Home() {
                   </p>
                 </div>
               </motion.div>
+
+              <motion.div variants={fadeInUp} className="pt-4">
+                <Link href="/products">
+                  <Button
+                    variant="outline"
+                    className="w-full sm:w-auto py-6 font-semibold"
+                  >
+                    Explore the Specs Ecosystem{" "}
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
+              </motion.div>
             </motion.div>
 
-            {/* CTA Box */}
+            {/* Image & CTA Box Column */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={slideInRight}
-              className="bg-gradient-to-br from-[#000066] to-[#000033] rounded-2xl p-8 flex flex-col justify-center text-center space-y-8 h-full text-white relative overflow-hidden shadow-2xl shadow-[#000066]/20 border border-[#000066]"
+              className="flex flex-col gap-6"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#990000] blur-[80px] opacity-40 rounded-full"></div>
+              <Image
+                src="/specs-about.jpg"
+                alt="Specs App Dashboard Workflow"
+                width={800}
+                height={800}
+                className="w-full h-auto rounded-2xl shadow-lg border border-slate-200 object-cover"
+                priority
+              />
 
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                <Smartphone
-                  className="w-20 h-20 mx-auto text-white/90 drop-shadow-lg"
-                  strokeWidth={1.5}
-                />
-              </motion.div>
-
-              <div className="relative z-10">
-                <h3 className="text-2xl font-bold tracking-tight">
-                  Coming to Google Play
-                </h3>
-                <p className="text-slate-300 text-sm mt-3 leading-relaxed">
-                  Join the exclusive waitlist for our upcoming beta release.
-                </p>
+              <div className="bg-gradient-to-br from-[#000066] to-[#000033] rounded-2xl p-8 flex flex-col justify-center text-center space-y-6 text-white relative overflow-hidden shadow-2xl shadow-[#000066]/20 border border-[#000066]">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#990000] blur-[80px] opacity-40 rounded-full"></div>
+                <div className="relative z-10">
+                  <h3 className="text-2xl font-bold tracking-tight">
+                    Coming to Google Play
+                  </h3>
+                  <p className="text-slate-300 text-sm mt-2 leading-relaxed">
+                    Join the exclusive waitlist for our upcoming beta release.
+                  </p>
+                </div>
+                <Link href="/contact" className="relative z-10">
+                  <Button className="w-full py-6 font-semibold bg-white text-[#000066] hover:bg-slate-100 hover:text-[#990000] flex items-center justify-center gap-2 transition-all shadow-lg">
+                    Request Beta Access <ArrowRight className="w-5 h-5" />
+                  </Button>
+                </Link>
               </div>
-
-              <Link href="/contact" className="relative z-10">
-                <Button className="w-full py-6 font-semibold bg-white text-[#000066] hover:bg-slate-100 hover:text-[#990000] flex items-center justify-center gap-2 transition-all shadow-lg">
-                  Request Beta Access <ArrowRight className="w-5 h-5" />
-                </Button>
-              </Link>
             </motion.div>
           </div>
         </div>
@@ -290,7 +296,7 @@ export default function Home() {
               </p>
             </motion.div>
 
-            {/* Pro Fashion BMS */}
+            {/* Solar-Ops */}
             <motion.div
               variants={fadeInUp}
               className="p-8 border border-slate-200 rounded-2xl bg-white text-left flex flex-col gap-4 shadow-sm hover:shadow-xl hover:border-[#990000]/30 transition-all duration-300 group"
@@ -301,12 +307,12 @@ export default function Home() {
                 </span>
               </div>
               <h3 className="font-extrabold text-[#000066] text-xl group-hover:text-[#990000] transition-colors">
-                Pro Fashion BMS
+                Solar-Ops
               </h3>
               <p className="text-sm text-slate-500 flex-grow leading-relaxed">
-                Expanding on the foundation of Specs, this is a comprehensive,
-                enterprise-level business management suite designed specifically
-                for the fashion industry.
+                A full-scale business management system engineered to handle
+                operations, installations, sales, purchase, CRM, and everything
+                related to solar energy business.
               </p>
             </motion.div>
 
