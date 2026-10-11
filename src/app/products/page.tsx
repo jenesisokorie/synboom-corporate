@@ -134,7 +134,7 @@ export default function ProductsPage() {
             >
               <div className="absolute inset-0 bg-[#990000]/10 blur-3xl rounded-full transform scale-90 translate-y-4"></div>
               <Image
-                src="/specs-about.jpg"
+                src="/specs-logo.jpg"
                 alt="Specs Ecosystem Display"
                 width={800}
                 height={800}
