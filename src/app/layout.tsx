@@ -21,10 +21,13 @@ export const metadata: Metadata = {
   },
   description:
     "A technology studio and holding company building specialized digital infrastructure and mobile products for emerging industries.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_NG",
-    url: "https://synboom.com",
+    url: "https://synboomlimited.com",
     siteName: "Synboom Limited",
     title: "Synboom Limited | Technology & Infrastructure",
     description:
