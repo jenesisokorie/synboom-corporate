@@ -78,15 +78,15 @@ export default function ProductsPage() {
             Flagship Ecosystem
           </div>
 
-          {/* Specs Logo in Hero */}
+          {/* Specs Logo in Hero - Enlarged */}
           <div className="flex justify-center items-center">
-            <div className="relative p-2 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 shadow-2xl">
+            <div className="relative p-2.5 sm:p-3 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl hover:scale-105 transition-transform duration-300">
               <Image
                 src="/specs-logo.jpg"
                 alt="Specs Logo"
-                width={130}
-                height={130}
-                className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-cover rounded-xl shadow-md"
+                width={200}
+                height={200}
+                className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 object-cover rounded-2xl shadow-lg"
                 priority
               />
             </div>

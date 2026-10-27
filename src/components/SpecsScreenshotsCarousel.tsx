@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import {
   ChevronLeft,
   ChevronRight,
@@ -184,6 +184,7 @@ export function AndroidPhoneFrame({
 
 export function SpecsScreenshotsCarousel() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [direction, setDirection] = useState<number>(0);
   const [isPaused, setIsPaused] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
@@ -218,14 +219,16 @@ export function SpecsScreenshotsCarousel() {
     return () => cancelAnimationFrame(animationFrameId);
   }, [isPaused]);
 
-  // Navigate lightbox modal
+  // Navigate lightbox modal with smooth direction tracking
   const handleNext = () => {
     if (selectedIndex === null) return;
+    setDirection(1);
     setSelectedIndex((selectedIndex + 1) % SPECS_SCREENSHOTS.length);
   };
 
   const handlePrev = () => {
     if (selectedIndex === null) return;
+    setDirection(-1);
     setSelectedIndex(
       (selectedIndex - 1 + SPECS_SCREENSHOTS.length) % SPECS_SCREENSHOTS.length
     );
@@ -241,7 +244,36 @@ export function SpecsScreenshotsCarousel() {
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  });
+  }, [selectedIndex]);
+
+  // Slide animation variants for smooth visual transition
+  const slideVariants: Variants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? 140 : -140,
+      opacity: 0,
+      scale: 0.94,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        x: { type: "spring", stiffness: 350, damping: 30 },
+        opacity: { duration: 0.2 },
+        scale: { duration: 0.2 },
+      },
+    },
+    exit: (dir: number) => ({
+      x: dir < 0 ? 140 : -140,
+      opacity: 0,
+      scale: 0.94,
+      transition: {
+        x: { type: "spring", stiffness: 350, damping: 30 },
+        opacity: { duration: 0.18 },
+        scale: { duration: 0.18 },
+      },
+    }),
+  };
 
   return (
     <div className="w-full relative overflow-hidden py-2">
@@ -345,28 +377,37 @@ export function SpecsScreenshotsCarousel() {
                 </p>
               </div>
 
-              {/* Swipeable Phone Frame (Sized to fit viewport without bottom cut-off) */}
-              <motion.div
-                key={selectedIndex}
-                drag="x"
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.25}
-                onDragEnd={(e, { offset, velocity }) => {
-                  const swipeThreshold = 40;
-                  if (offset.x < -swipeThreshold || velocity.x < -300) {
-                    handleNext();
-                  } else if (offset.x > swipeThreshold || velocity.x > 300) {
-                    handlePrev();
-                  }
-                }}
-                className="w-[210px] sm:w-[240px] md:w-[260px] lg:w-[280px] max-h-[75vh] cursor-grab active:cursor-grabbing flex-shrink-0"
-              >
-                <AndroidPhoneFrame
-                  src={SPECS_SCREENSHOTS[selectedIndex].src}
-                  alt={SPECS_SCREENSHOTS[selectedIndex].title}
-                  priority
-                />
-              </motion.div>
+              {/* Swipeable Phone Frame (Sized compact on desktop to never hit top/bottom edges) */}
+              <div className="relative w-[190px] sm:w-[220px] md:w-[230px] lg:w-[245px] max-h-[64vh] flex items-center justify-center flex-shrink-0">
+                <AnimatePresence initial={false} custom={direction} mode="wait">
+                  <motion.div
+                    key={selectedIndex}
+                    custom={direction}
+                    variants={slideVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.2}
+                    onDragEnd={(e, { offset, velocity }) => {
+                      const swipeThreshold = 35;
+                      if (offset.x < -swipeThreshold || velocity.x < -250) {
+                        handleNext();
+                      } else if (offset.x > swipeThreshold || velocity.x > 250) {
+                        handlePrev();
+                      }
+                    }}
+                    className="w-full cursor-grab active:cursor-grabbing"
+                  >
+                    <AndroidPhoneFrame
+                      src={SPECS_SCREENSHOTS[selectedIndex].src}
+                      alt={SPECS_SCREENSHOTS[selectedIndex].title}
+                      priority
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
 
               {/* Desktop Details Panel (Beside the phone on desktop) */}
               <div className="hidden md:flex flex-col text-left text-white space-y-4 max-w-sm lg:max-w-md bg-white/5 border border-white/10 backdrop-blur-md p-6 lg:p-8 rounded-3xl shadow-2xl">
