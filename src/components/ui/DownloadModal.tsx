@@ -216,16 +216,14 @@ export function DownloadModal({
 
                   <div className="pt-2">
                     <a
-                      href="https://forms.gle/t9vER3USHvmgM3d4A"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href="/feedback"
                       className="inline-block w-full"
                     >
                       <Button
                         variant="default"
                         className="w-full py-5 text-xs md:text-sm font-semibold rounded-xl bg-[#000066] text-white hover:bg-[#000044]"
                       >
-                        Leave Feedback on Google Form & Claim 2 Months Free
+                        Leave Feedback & Claim 2 Months Free
                       </Button>
                     </a>
                   </div>

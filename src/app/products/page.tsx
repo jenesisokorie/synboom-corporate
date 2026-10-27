@@ -374,21 +374,16 @@ export default function ProductsPage() {
               </div>
 
               <div className="w-full md:w-auto flex-shrink-0">
-                <a
-                  href="https://forms.gle/t9vER3USHvmgM3d4A"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full"
-                >
+                <Link href="/feedback" className="block w-full">
                   <Button
                     variant="brandRed"
                     className="w-full md:w-auto py-6 px-8 text-sm sm:text-base font-bold rounded-full shadow-lg shadow-[#990000]/40 flex items-center justify-center gap-2 hover:-translate-y-0.5 transition-all"
                   >
                     <MessageSquare className="w-4 h-4" />
-                    Open Feedback Form
+                    Submit Testing Feedback
                     <ArrowRight className="w-4 h-4 ml-1" />
                   </Button>
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>
