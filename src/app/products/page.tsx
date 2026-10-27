@@ -86,38 +86,6 @@ export default function ProductsPage() {
             A comprehensive, offline-first operating system engineered
             specifically for fashion designers, tailors, and their clientele.
           </p>
-
-          {/* Reward perk badge */}
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/20 via-amber-400/10 to-amber-500/20 border border-amber-400/40 text-amber-200 px-4 py-2 rounded-full text-xs md:text-sm font-semibold shadow-inner">
-            <span>🎁</span>
-            <span>Get <strong>2 Months Free</strong> Specs Business Plan on official launch after participating in the beta!</span>
-          </div>
-
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button
-              onClick={() => setDownloadModalOpen(true)}
-              variant="brandRed"
-              className="w-full sm:w-auto py-6 px-8 text-base font-bold rounded-full shadow-lg shadow-[#990000]/30 flex items-center justify-center gap-2 hover:-translate-y-0.5"
-            >
-              <Download className="w-5 h-5" />
-              Download Specs APK (v1.0.1)
-            </Button>
-
-            <a
-              href="https://forms.gle/t9vER3USHvmgM3d4A"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto"
-            >
-              <Button
-                variant="outline"
-                className="w-full sm:w-auto py-6 px-8 text-base font-semibold rounded-full bg-white/10 hover:bg-white/20 text-white border-white/30 hover:border-white flex items-center justify-center gap-2 hover:-translate-y-0.5"
-              >
-                <ExternalLink className="w-4 h-4 text-slate-300" />
-                Tester Feedback Form
-              </Button>
-            </a>
-          </div>
         </motion.div>
       </section>
 
@@ -328,51 +296,53 @@ export default function ProductsPage() {
       </section>
 
       {/* Tester Beta Callout Section */}
-      <section className="py-14 px-4 bg-gradient-to-r from-red-50 via-white to-red-50 border-b border-red-100">
-        <div className="container mx-auto max-w-4xl">
+      <section className="py-12 md:py-16 px-4 bg-gradient-to-b from-slate-50 via-white to-slate-50 border-b border-slate-200">
+        <div className="container mx-auto max-w-3xl">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={fadeInUp}
-            className="bg-white rounded-2xl p-8 md:p-10 border border-red-100 shadow-xl shadow-red-900/5 text-center relative overflow-hidden"
+            className="bg-white rounded-3xl p-6 sm:p-10 md:p-12 border border-slate-200/80 shadow-xl shadow-slate-900/5 text-center relative overflow-hidden"
           >
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-[#990000] uppercase bg-red-100/60 px-3.5 py-1.5 rounded-full mb-4">
-              <Smartphone className="w-3.5 h-3.5 text-[#990000]" />
-              Android Beta Testing
-            </div>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-[#000066] mb-3">
-              Help Shape the Specs Experience
-            </h2>
-            <div className="inline-block bg-amber-50 border border-amber-200 text-amber-900 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold mb-4">
-              🎉 <strong>Tester Perk:</strong> Get <strong>2 months FREE</strong> on the Specs Business Plan when we officially launch after participating and sharing feedback!
-            </div>
-            <p className="text-slate-600 max-w-2xl mx-auto text-sm md:text-base leading-relaxed mb-8">
-              We&apos;re actively inviting designers, tailors, and fashion teams to test Specs v1.0.1 on Android. Install the build, test offline/online sync, and tell us how we can make it even better.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                onClick={() => setDownloadModalOpen(true)}
-                variant="brandRed"
-                className="w-full sm:w-auto py-6 px-8 text-base font-bold rounded-full shadow-lg shadow-[#990000]/25 flex items-center justify-center gap-2 hover:-translate-y-0.5"
-              >
-                <Download className="w-5 h-5" />
-                Download Specs APK (v1.0.1)
-              </Button>
-              <a
-                href="https://forms.gle/t9vER3USHvmgM3d4A"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto"
-              >
+            {/* Soft decorative gradient glow */}
+            <div className="absolute top-0 right-1/2 translate-x-1/2 w-72 h-36 bg-[#990000]/10 blur-[70px] pointer-events-none rounded-full" />
+
+            <div className="relative z-10 space-y-4">
+              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-[#990000] uppercase bg-red-50 border border-red-100 px-3.5 py-1.5 rounded-full">
+                <Smartphone className="w-3.5 h-3.5 text-[#990000]" />
+                Specs Android Beta (v1.0.1)
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#000066] tracking-tight">
+                Download Specs for Android
+              </h2>
+
+              <p className="text-slate-600 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
+                Experience our offline-first measurement vault and studio management system. Install directly on your Android device and test our latest features.
+              </p>
+
+              {/* Reward perk pill */}
+              <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-900 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold max-w-lg mx-auto text-left sm:text-center">
+                <span>🎁</span>
+                <span>
+                  <strong>Early Tester Reward:</strong> Get <strong>2 months FREE</strong> on the Specs Business Plan when we officially launch!
+                </span>
+              </div>
+
+              <div className="pt-3 max-w-md mx-auto">
                 <Button
-                  variant="outline"
-                  className="w-full sm:w-auto py-6 px-8 text-base font-semibold rounded-full border-slate-300 hover:border-[#000066] flex items-center justify-center gap-2 hover:-translate-y-0.5"
+                  onClick={() => setDownloadModalOpen(true)}
+                  variant="brandRed"
+                  className="w-full py-6 px-8 text-base font-bold rounded-full shadow-lg shadow-[#990000]/25 flex items-center justify-center gap-2.5 hover:-translate-y-0.5 transition-all"
                 >
-                  <ExternalLink className="w-4 h-4 text-[#990000]" />
-                  Submit Tester Feedback
+                  <Download className="w-5 h-5" />
+                  Download Specs APK (v1.0.1)
                 </Button>
-              </a>
+                <p className="text-xs text-slate-400 mt-3">
+                  Direct Android APK (.apk) • Free early access • No credit card required
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>

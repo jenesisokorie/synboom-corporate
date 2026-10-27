@@ -74,14 +74,14 @@ export function DownloadModal({
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={handleReset}
-            className="absolute inset-0 bg-slate-950/70 backdrop-blur-sm"
+            className="fixed inset-0 bg-slate-950/70 backdrop-blur-sm"
           />
 
           {/* Modal Content */}
@@ -90,33 +90,33 @@ export function DownloadModal({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-10"
+            className="relative w-full max-w-md bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-100 overflow-hidden z-10 my-auto"
           >
             {/* Header pattern */}
-            <div className="bg-[#000066] p-6 text-white relative">
+            <div className="bg-[#000066] p-5 sm:p-6 text-white relative">
               <button
                 onClick={handleReset}
-                className="absolute top-4 right-4 text-white/70 hover:text-white p-1 rounded-full hover:bg-white/10 transition-colors"
+                className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 text-white/70 hover:text-white p-1.5 rounded-full hover:bg-white/10 transition-colors"
                 aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
               </button>
 
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-semibold text-red-200 mb-3">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[11px] sm:text-xs font-semibold text-red-200 mb-2.5">
                 <Sparkles className="w-3.5 h-3.5 text-amber-300" />
                 Specs v1.0.1 Android Beta
               </div>
 
-              <h3 className="text-xl md:text-2xl font-bold tracking-tight">
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
                 {submitted ? "Download Starting..." : "Get Specs for Android"}
               </h3>
-              <p className="text-slate-300 text-xs md:text-sm mt-1">
-                Enter your details to receive early tester perks and the direct download.
+              <p className="text-slate-300 text-xs sm:text-sm mt-1">
+                Enter your details to receive early tester perks and the direct APK.
               </p>
             </div>
 
             {/* Body */}
-            <div className="p-6 md:p-8">
+            <div className="p-5 sm:p-7">
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   {/* Perk Banner */}

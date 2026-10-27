@@ -231,43 +231,30 @@ export default function Home() {
                 priority
               />
 
-              <div className="bg-gradient-to-br from-[#000066] to-[#000033] rounded-2xl p-8 flex flex-col justify-center text-center space-y-5 text-white relative overflow-hidden shadow-2xl shadow-[#000066]/20 border border-[#000066]">
+              <div className="bg-gradient-to-br from-[#000066] to-[#000033] rounded-3xl p-6 sm:p-8 flex flex-col justify-center text-center space-y-4 text-white relative overflow-hidden shadow-2xl shadow-[#000066]/20 border border-[#000066]">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#990000] blur-[80px] opacity-40 rounded-full"></div>
                 <div className="relative z-10">
                   <div className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wider text-red-200 uppercase bg-white/10 px-3 py-1 rounded-full mb-3 border border-white/20">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#990000] animate-pulse"></span>
                     Android Beta Available
                   </div>
-                  <h3 className="text-2xl font-bold tracking-tight">
+                  <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
                     Specs v1.0.1 Beta
                   </h3>
                   <div className="mt-2 inline-block bg-amber-400/20 border border-amber-300/40 text-amber-200 text-xs px-3 py-1.5 rounded-full font-medium">
                     🎁 <strong>Perk:</strong> 2 Months Free Business Plan on launch!
                   </div>
-                  <p className="text-slate-300 text-sm mt-2 leading-relaxed">
-                    Download the testing APK directly to your device and share your feedback.
+                  <p className="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
+                    Download the testing APK directly to your device and test early features.
                   </p>
                 </div>
-                <div className="relative z-10 flex flex-col gap-2.5">
+                <div className="relative z-10 pt-1">
                   <Button
                     onClick={() => setDownloadModalOpen(true)}
-                    className="w-full py-5 font-semibold bg-[#990000] hover:bg-[#7a0000] text-white flex items-center justify-center gap-2 transition-all shadow-md"
+                    className="w-full py-6 text-sm sm:text-base font-bold bg-[#990000] hover:bg-[#7a0000] text-white flex items-center justify-center gap-2 rounded-xl transition-all shadow-md hover:-translate-y-0.5"
                   >
                     <Download className="w-4 h-4" /> Download APK (v1.0.1)
                   </Button>
-                  <a
-                    href="https://forms.gle/t9vER3USHvmgM3d4A"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full"
-                  >
-                    <Button
-                      variant="outline"
-                      className="w-full py-5 font-semibold bg-white/10 hover:bg-white/20 text-white border-white/30 hover:border-white flex items-center justify-center gap-2 transition-all"
-                    >
-                      <MessageSquare className="w-4 h-4" /> Tester Feedback Form
-                    </Button>
-                  </a>
                 </div>
               </div>
             </motion.div>
