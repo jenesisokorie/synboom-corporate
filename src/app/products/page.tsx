@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { Button } from "@/src/components/ui/Button";
 import { DownloadModal } from "@/src/components/ui/DownloadModal";
+import { SpecsScreenshotsCarousel } from "@/src/components/SpecsScreenshotsCarousel";
 import {
   Scissors,
   Database,
@@ -160,6 +161,33 @@ export default function ProductsPage() {
             </motion.div>
           </div>
         </div>
+      </section>
+
+      {/* App Screenshots Gallery Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-slate-100/70 via-slate-50 to-white border-y border-slate-200 overflow-hidden">
+        <div className="container mx-auto px-4 max-w-5xl text-center mb-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={fadeInUp}
+            className="space-y-3"
+          >
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-[#990000] uppercase bg-red-100/60 px-3.5 py-1.5 rounded-full">
+              <Smartphone className="w-3.5 h-3.5 text-[#990000]" />
+              Android Interface Preview
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[#000066]">
+              Inside the Specs Mobile OS
+            </h2>
+            <p className="text-slate-600 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+              Explore live screens from our Android build—from client measurement intake and production pipelines to real-time financial dashboards.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Endless Marquee Phone Frames + Lightbox Modal */}
+        <SpecsScreenshotsCarousel />
       </section>
 
       {/* For Fashion Designers */}

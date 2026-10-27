@@ -31,13 +31,15 @@ export default function FeedbackPage() {
     ratingMeasurements: 5,
     ratingCustomOrders: 5,
     ratingInventory: 5,
-    financialInsights: "Extremely helpful, gives me a clear view of my finances",
+    financialInsights:
+      "Extremely helpful, gives me a clear view of my finances",
     invoicing: "Yes, it was quick and looked professional",
     featureFeedback: "",
     frustratingPart: "",
     encounteredCrashes: "No, the app ran perfectly smooth",
     crashDescription: "",
-    subscriptionLikelihood: "Yes, absolutely! It’s a game-changer for my business.",
+    subscriptionLikelihood:
+      "Yes, absolutely! It’s a game-changer for my business.",
     pricingThoughts: "",
     magicFeature: "",
     npsScore: 10,
@@ -46,10 +48,7 @@ export default function FeedbackPage() {
     generalFeedback: "",
   });
 
-  const handleChange = (
-    field: string,
-    value: string | number
-  ) => {
+  const handleChange = (field: string, value: string | number) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
@@ -60,7 +59,10 @@ export default function FeedbackPage() {
 
     const submission = new FormData();
     submission.append("access_key", "3e922913-6dd3-4630-b3ac-c54ed5264eb8");
-    submission.append("subject", `Specs Beta Feedback: ${formData.brandName || formData.testerEmail}`);
+    submission.append(
+      "subject",
+      `Specs Beta Feedback: ${formData.brandName || formData.testerEmail}`,
+    );
     submission.append("from_name", "Specs Beta Feedback Portal");
     submission.append("email", formData.testerEmail);
     submission.append("name", formData.brandName || "Anonymous Tester");
@@ -70,38 +72,71 @@ export default function FeedbackPage() {
     submission.append("Brand / Name", formData.brandName);
     submission.append("Business Type", formData.businessType);
     submission.append("Device Tested", formData.deviceTested);
-    submission.append("Rating: Measurements (1-5)", formData.ratingMeasurements.toString());
-    submission.append("Rating: Custom Orders (1-5)", formData.ratingCustomOrders.toString());
-    submission.append("Rating: Inventory & Storefront (1-5)", formData.ratingInventory.toString());
+    submission.append(
+      "Rating: Measurements (1-5)",
+      formData.ratingMeasurements.toString(),
+    );
+    submission.append(
+      "Rating: Custom Orders (1-5)",
+      formData.ratingCustomOrders.toString(),
+    );
+    submission.append(
+      "Rating: Inventory & Storefront (1-5)",
+      formData.ratingInventory.toString(),
+    );
     submission.append("Financial Insights Feature", formData.financialInsights);
     submission.append("Invoicing Feature", formData.invoicing);
-    submission.append("Feature Feedback / Suggestions", formData.featureFeedback || "N/A");
-    submission.append("Most Frustrating Roadblock", formData.frustratingPart || "None");
+    submission.append(
+      "Feature Feedback / Suggestions",
+      formData.featureFeedback || "N/A",
+    );
+    submission.append(
+      "Most Frustrating Roadblock",
+      formData.frustratingPart || "None",
+    );
     submission.append("Crashes or Freezing", formData.encounteredCrashes);
     submission.append("Crash Details", formData.crashDescription || "N/A");
     submission.append("Subscription Intent", formData.subscriptionLikelihood);
     submission.append("Pricing Thoughts", formData.pricingThoughts || "N/A");
     submission.append("Magic Feature Request", formData.magicFeature || "N/A");
-    submission.append("Recommendation Score (1-10)", formData.npsScore.toString());
+    submission.append(
+      "Recommendation Score (1-10)",
+      formData.npsScore.toString(),
+    );
     submission.append("Open to Follow-up Call", formData.openToFollowUp);
     submission.append("WhatsApp Number", formData.whatsAppNumber || "N/A");
-    submission.append("General Feedback / Encouragement", formData.generalFeedback || "N/A");
+    submission.append(
+      "General Feedback / Encouragement",
+      formData.generalFeedback || "N/A",
+    );
 
     // Also submit in background directly to Google Form so it populates your Google Sheet for free!
     try {
       const googleFormData = new URLSearchParams();
       // 1. Name
-      googleFormData.append("entry.667609029", formData.brandName || formData.testerEmail);
+      googleFormData.append(
+        "entry.667609029",
+        formData.brandName || formData.testerEmail,
+      );
       // 2. Business type
       googleFormData.append("entry.1684582149", formData.businessType);
       // 3. Device
       googleFormData.append("entry.1946820972", formData.deviceTested);
       // 4. Measurements
-      googleFormData.append("entry.806407215", formData.ratingMeasurements.toString());
+      googleFormData.append(
+        "entry.806407215",
+        formData.ratingMeasurements.toString(),
+      );
       // 5. Custom Orders
-      googleFormData.append("entry.521712248", formData.ratingCustomOrders.toString());
+      googleFormData.append(
+        "entry.521712248",
+        formData.ratingCustomOrders.toString(),
+      );
       // 6. Inventory
-      googleFormData.append("entry.1055244239", formData.ratingInventory.toString());
+      googleFormData.append(
+        "entry.1055244239",
+        formData.ratingInventory.toString(),
+      );
       // 7. Financial Insights
       googleFormData.append("entry.177395626", formData.financialInsights);
       // 8. Invoicing
@@ -152,7 +187,7 @@ export default function FeedbackPage() {
             "Content-Type": "application/x-www-form-urlencoded",
           },
           body: googleFormData.toString(),
-        }
+        },
       );
     } catch {
       // Non-blocking: even if no-cors is blocked or network drops, Web3Forms email still succeeds
@@ -180,7 +215,11 @@ export default function FeedbackPage() {
 
   const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
   };
 
   return (
@@ -200,16 +239,22 @@ export default function FeedbackPage() {
             Beta Testing Feedback
           </div>
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-            Help Shape <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">Specs</span>
+            Help Shape{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">
+              Specs
+            </span>
           </h1>
           <p className="text-slate-300 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-            Your hands-on insights help us craft the ultimate digital assistant for bespoke fashion and tailoring studios.
+            Your hands-on insights help us craft the ultimate digital assistant
+            for bespoke fashion and tailoring studios.
           </p>
 
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/20 via-amber-400/10 to-amber-500/20 border border-amber-300/40 text-amber-200 px-4 py-2 rounded-full text-xs md:text-sm font-semibold shadow-inner">
             <span>🎁</span>
             <span>
-              <strong>Tester Perk:</strong> Receive <strong>2 Months FREE</strong> on the Specs Business Plan when we officially launch!
+              <strong>Tester Perk:</strong> Receive{" "}
+              <strong>2 Months FREE</strong> on the Specs Business Plan when we
+              officially launch!
             </span>
           </div>
         </div>
@@ -232,25 +277,34 @@ export default function FeedbackPage() {
                 Thank You for Your Feedback!
               </h2>
               <p className="text-slate-600 max-w-lg mx-auto text-sm md:text-base leading-relaxed">
-                We have received your responses. Your insights will directly influence upcoming releases of Specs.
+                We have received your responses. Your insights will directly
+                influence upcoming releases of Specs.
               </p>
             </div>
 
             <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 text-amber-900 max-w-md mx-auto text-sm space-y-1">
               <p className="font-bold">🎉 Your Launch Reward is Locked In</p>
               <p className="text-xs text-amber-800 leading-relaxed">
-                We&apos;ve registered <strong>{formData.testerEmail}</strong>. When Specs officially launches on Google Play, your 2 free months on the Business Plan will be waiting for you!
+                We&apos;ve registered <strong>{formData.testerEmail}</strong>.
+                When Specs officially launches on Google Play, your 2 free
+                months on the Business Plan will be waiting for you!
               </p>
             </div>
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/products" className="w-full sm:w-auto">
-                <Button variant="default" className="w-full sm:w-auto px-8 py-5 rounded-full font-semibold">
+                <Button
+                  variant="default"
+                  className="w-full sm:w-auto px-8 py-5 rounded-full font-semibold"
+                >
                   Back to Products
                 </Button>
               </Link>
               <Link href="/" className="w-full sm:w-auto">
-                <Button variant="outline" className="w-full sm:w-auto px-8 py-5 rounded-full font-semibold">
+                <Button
+                  variant="outline"
+                  className="w-full sm:w-auto px-8 py-5 rounded-full font-semibold"
+                >
                   Go to Homepage
                 </Button>
               </Link>
@@ -267,9 +321,15 @@ export default function FeedbackPage() {
               className="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-slate-200/80 shadow-lg shadow-slate-900/5 space-y-6"
             >
               <div className="border-b border-slate-100 pb-4">
-                <span className="text-xs font-bold tracking-wider uppercase text-[#990000]">Section 1</span>
-                <h2 className="text-xl sm:text-2xl font-bold text-[#000066] mt-1">Let&apos;s Get to Know You</h2>
-                <p className="text-xs sm:text-sm text-slate-500 mt-1">A little bit about you and your studio.</p>
+                <span className="text-xs font-bold tracking-wider uppercase text-[#990000]">
+                  Section 1
+                </span>
+                <h2 className="text-xl sm:text-2xl font-bold text-[#000066] mt-1">
+                  Let&apos;s Get to Know You
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                  A little bit about you and your studio.
+                </p>
               </div>
 
               <div>
@@ -285,13 +345,15 @@ export default function FeedbackPage() {
                   className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#000066] text-sm text-slate-900"
                 />
                 <p className="text-[11px] text-slate-400 mt-1.5">
-                  Used to link your 2 free months of Specs Business Plan on launch.
+                  Used to link your 2 free months of Specs Business Plan on
+                  launch.
                 </p>
               </div>
 
               <div>
                 <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-2">
-                  1. Your Name / Brand Name <span className="text-slate-400 font-normal">(Optional)</span>
+                  1. Your Name / Brand Name{" "}
+                  <span className="text-slate-400 font-normal">(Optional)</span>
                 </label>
                 <input
                   type="text"
@@ -333,7 +395,11 @@ export default function FeedbackPage() {
                   3. Which device did you primarily use to test Specs?
                 </label>
                 <div className="grid sm:grid-cols-3 gap-3">
-                  {["Android mobile phone", "Android Tablet", "I used both"].map((device) => (
+                  {[
+                    "Android mobile phone",
+                    "Android Tablet",
+                    "I used both",
+                  ].map((device) => (
                     <button
                       key={device}
                       type="button"
@@ -360,9 +426,15 @@ export default function FeedbackPage() {
               className="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-slate-200/80 shadow-lg shadow-slate-900/5 space-y-6"
             >
               <div className="border-b border-slate-100 pb-4">
-                <span className="text-xs font-bold tracking-wider uppercase text-[#990000]">Section 2</span>
-                <h2 className="text-xl sm:text-2xl font-bold text-[#000066] mt-1">Testing the Core Features</h2>
-                <p className="text-xs sm:text-sm text-slate-500 mt-1">How easy and useful you found the app modules.</p>
+                <span className="text-xs font-bold tracking-wider uppercase text-[#990000]">
+                  Section 2
+                </span>
+                <h2 className="text-xl sm:text-2xl font-bold text-[#000066] mt-1">
+                  Testing the Core Features
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                  How easy and useful you found the app modules.
+                </p>
               </div>
 
               {/* Rating 4 */}
@@ -371,9 +443,14 @@ export default function FeedbackPage() {
                   <label className="text-xs sm:text-sm font-bold text-slate-800">
                     4. Adding Customer Profiles & Measurements
                   </label>
-                  <span className="text-xs font-semibold text-[#000066]">{formData.ratingMeasurements} / 5</span>
+                  <span className="text-xs font-semibold text-[#000066]">
+                    {formData.ratingMeasurements} / 5
+                  </span>
                 </div>
-                <p className="text-xs text-slate-500">How easy was it to create a new client and record body measurements?</p>
+                <p className="text-xs text-slate-500">
+                  How easy was it to create a new client and record body
+                  measurements?
+                </p>
                 <div className="flex items-center gap-2 pt-1">
                   {[1, 2, 3, 4, 5].map((score) => (
                     <button
@@ -398,10 +475,13 @@ export default function FeedbackPage() {
                   <label className="text-xs sm:text-sm font-bold text-slate-800">
                     5. Custom Orders & Production Pipeline
                   </label>
-                  <span className="text-xs font-semibold text-[#000066]">{formData.ratingCustomOrders} / 5</span>
+                  <span className="text-xs font-semibold text-[#000066]">
+                    {formData.ratingCustomOrders} / 5
+                  </span>
                 </div>
                 <p className="text-xs text-slate-500">
-                  Moving orders through Draft, Cutting, Sewing, Fitting, and Completed stages.
+                  Moving orders through Draft, Cutting, Sewing, Fitting, and
+                  Completed stages.
                 </p>
                 <div className="flex items-center gap-2 pt-1">
                   {[1, 2, 3, 4, 5].map((score) => (
@@ -427,9 +507,14 @@ export default function FeedbackPage() {
                   <label className="text-xs sm:text-sm font-bold text-slate-800">
                     6. Inventory & Storefront
                   </label>
-                  <span className="text-xs font-semibold text-[#000066]">{formData.ratingInventory} / 5</span>
+                  <span className="text-xs font-semibold text-[#000066]">
+                    {formData.ratingInventory} / 5
+                  </span>
                 </div>
-                <p className="text-xs text-slate-500">Adding fabrics/materials to inventory and displaying storefront items.</p>
+                <p className="text-xs text-slate-500">
+                  Adding fabrics/materials to inventory and displaying
+                  storefront items.
+                </p>
                 <div className="flex items-center gap-2 pt-1">
                   {[1, 2, 3, 4, 5].map((score) => (
                     <button
@@ -512,7 +597,9 @@ export default function FeedbackPage() {
                 <textarea
                   rows={3}
                   value={formData.featureFeedback}
-                  onChange={(e) => handleChange("featureFeedback", e.target.value)}
+                  onChange={(e) =>
+                    handleChange("featureFeedback", e.target.value)
+                  }
                   placeholder="e.g. Something missing in measurements, or a detail you wish the invoice had..."
                   className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#000066] text-sm text-slate-900"
                 />
@@ -528,9 +615,15 @@ export default function FeedbackPage() {
               className="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-slate-200/80 shadow-lg shadow-slate-900/5 space-y-6"
             >
               <div className="border-b border-slate-100 pb-4">
-                <span className="text-xs font-bold tracking-wider uppercase text-[#990000]">Section 3</span>
-                <h2 className="text-xl sm:text-2xl font-bold text-[#000066] mt-1">App Performance & Usability</h2>
-                <p className="text-xs sm:text-sm text-slate-500 mt-1">Let us know about roadblocks or bugs encountered.</p>
+                <span className="text-xs font-bold tracking-wider uppercase text-[#990000]">
+                  Section 3
+                </span>
+                <h2 className="text-xl sm:text-2xl font-bold text-[#000066] mt-1">
+                  App Performance & Usability
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                  Let us know about roadblocks or bugs encountered.
+                </p>
               </div>
 
               <div>
@@ -540,7 +633,9 @@ export default function FeedbackPage() {
                 <textarea
                   rows={3}
                   value={formData.frustratingPart}
-                  onChange={(e) => handleChange("frustratingPart", e.target.value)}
+                  onChange={(e) =>
+                    handleChange("frustratingPart", e.target.value)
+                  }
                   placeholder="Please be honest! Did something break? Was a button hard to find?"
                   className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#000066] text-sm text-slate-900"
                 />
@@ -548,7 +643,8 @@ export default function FeedbackPage() {
 
               <div>
                 <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-2">
-                  11. Did you experience any crashes, screen freezing, or slow loading times?
+                  11. Did you experience any crashes, screen freezing, or slow
+                  loading times?
                 </label>
                 <div className="space-y-2">
                   {[
@@ -572,7 +668,8 @@ export default function FeedbackPage() {
                 </div>
               </div>
 
-              {formData.encounteredCrashes !== "No, the app ran perfectly smooth" && (
+              {formData.encounteredCrashes !==
+                "No, the app ran perfectly smooth" && (
                 <div>
                   <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-1.5">
                     12. What were you trying to do when it happened?
@@ -580,7 +677,9 @@ export default function FeedbackPage() {
                   <input
                     type="text"
                     value={formData.crashDescription}
-                    onChange={(e) => handleChange("crashDescription", e.target.value)}
+                    onChange={(e) =>
+                      handleChange("crashDescription", e.target.value)
+                    }
                     placeholder="e.g. Tapping on save order, or uploading an image"
                     className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#000066] text-sm text-slate-900"
                   />
@@ -597,9 +696,15 @@ export default function FeedbackPage() {
               className="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-slate-200/80 shadow-lg shadow-slate-900/5 space-y-6"
             >
               <div className="border-b border-slate-100 pb-4">
-                <span className="text-xs font-bold tracking-wider uppercase text-[#990000]">Section 4</span>
-                <h2 className="text-xl sm:text-2xl font-bold text-[#000066] mt-1">Pricing & Recommendation</h2>
-                <p className="text-xs sm:text-sm text-slate-500 mt-1">Helping us craft a fair, high-value subscription model.</p>
+                <span className="text-xs font-bold tracking-wider uppercase text-[#990000]">
+                  Section 4
+                </span>
+                <h2 className="text-xl sm:text-2xl font-bold text-[#000066] mt-1">
+                  Pricing & Recommendation
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                  Helping us craft a fair, high-value subscription model.
+                </p>
               </div>
 
               <div>
@@ -615,7 +720,9 @@ export default function FeedbackPage() {
                     <button
                       key={option}
                       type="button"
-                      onClick={() => handleChange("subscriptionLikelihood", option)}
+                      onClick={() =>
+                        handleChange("subscriptionLikelihood", option)
+                      }
                       className={`w-full p-3 rounded-xl border text-xs sm:text-sm text-left font-medium transition-all ${
                         formData.subscriptionLikelihood === option
                           ? "border-[#000066] bg-blue-50 text-[#000066] font-semibold"
@@ -630,12 +737,15 @@ export default function FeedbackPage() {
 
               <div>
                 <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-1.5">
-                  14. How do you feel about the Standard & Business subscription pricing?
+                  14. How do you feel about the Standard & Business subscription
+                  pricing?
                 </label>
                 <input
                   type="text"
                   value={formData.pricingThoughts}
-                  onChange={(e) => handleChange("pricingThoughts", e.target.value)}
+                  onChange={(e) =>
+                    handleChange("pricingThoughts", e.target.value)
+                  }
                   placeholder="Fair, too high, or good value for money?"
                   className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#000066] text-sm text-slate-900"
                 />
@@ -643,7 +753,8 @@ export default function FeedbackPage() {
 
               <div>
                 <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-1.5">
-                  15. If you could add ONE &quot;magic feature&quot; to Specs right now, what would it be?
+                  15. If you could add ONE &quot;magic feature&quot; to Specs
+                  right now, what would it be?
                 </label>
                 <input
                   type="text"
@@ -658,9 +769,12 @@ export default function FeedbackPage() {
               <div>
                 <div className="flex justify-between items-baseline mb-2">
                   <label className="text-xs sm:text-sm font-bold text-slate-800">
-                    16. How likely are you to recommend Specs to other designers?
+                    16. How likely are you to recommend Specs to other
+                    designers?
                   </label>
-                  <span className="text-xs font-semibold text-[#000066]">{formData.npsScore} / 10</span>
+                  <span className="text-xs font-semibold text-[#000066]">
+                    {formData.npsScore} / 10
+                  </span>
                 </div>
                 <div className="grid grid-cols-5 sm:grid-cols-10 gap-1.5">
                   {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
@@ -686,7 +800,8 @@ export default function FeedbackPage() {
 
               <div>
                 <label className="block text-xs sm:text-sm font-bold text-slate-800 mb-2">
-                  17. Would you be open to a quick 10-minute follow-up chat/call?
+                  17. Would you be open to a quick 10-minute follow-up
+                  chat/call?
                 </label>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {["Yes, I'd love to chat!", "No, thank you."].map((opt) => (
@@ -714,7 +829,9 @@ export default function FeedbackPage() {
                   <input
                     type="tel"
                     value={formData.whatsAppNumber}
-                    onChange={(e) => handleChange("whatsAppNumber", e.target.value)}
+                    onChange={(e) =>
+                      handleChange("whatsAppNumber", e.target.value)
+                    }
                     placeholder="+234 800 000 0000"
                     className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#000066] text-sm text-slate-900"
                   />
@@ -728,7 +845,9 @@ export default function FeedbackPage() {
                 <textarea
                   rows={3}
                   value={formData.generalFeedback}
-                  onChange={(e) => handleChange("generalFeedback", e.target.value)}
+                  onChange={(e) =>
+                    handleChange("generalFeedback", e.target.value)
+                  }
                   placeholder="Share any thoughts with the dev team..."
                   className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#000066] text-sm text-slate-900"
                 />
@@ -757,7 +876,7 @@ export default function FeedbackPage() {
                 ) : (
                   <>
                     <Send className="w-5 h-5" />
-                    Submit Feedback & Claim Reward
+                    Submit & Claim Reward
                   </>
                 )}
               </Button>
