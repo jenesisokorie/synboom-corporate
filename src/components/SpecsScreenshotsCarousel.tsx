@@ -9,119 +9,118 @@ import {
   Maximize2,
   X,
   Smartphone,
-  Sparkles,
 } from "lucide-react";
 
 export const SPECS_SCREENSHOTS = [
   {
-    src: "/SpecsScreenshots/Screenshot_20261027-154512.png",
-    title: "Specs Overview",
-    desc: "Clean studio dashboard and active workflows.",
+    src: "/SpecsScreenshots/Screenshot_20261027-160142.png",
+    title: "Business Workspace Dashboard",
+    desc: "Real-time overview of active bespoke orders, pending revenue, retail items, and expense tracking.",
   },
   {
     src: "/SpecsScreenshots/Screenshot_20261027-154525.png",
-    title: "Client Directory",
-    desc: "Search, organize, and manage client records instantly.",
+    title: "New Customer Registration",
+    desc: "Capturing client contact information, phone, email, and linking them to your cloud-protected client hub.",
   },
   {
     src: "/SpecsScreenshots/Screenshot_20261027-154533.png",
-    title: "Client Profile",
-    desc: "Full contact history, active orders, and measurements.",
+    title: "Body Measurement Vault",
+    desc: "Comprehensive sizing specs across Men, Women, Children, and Infants with Fractions (Inches) and CM support.",
   },
   {
     src: "/SpecsScreenshots/Screenshot_20261027-154542.png",
-    title: "Body Measurement Vault",
-    desc: "Standardized measurements for precise garment construction.",
-  },
-  {
-    src: "/SpecsScreenshots/Screenshot_20261027-154648.png",
-    title: "Measurement Sets",
-    desc: "Customizable categories: Traditional, Corporate, Suits.",
-  },
-  {
-    src: "/SpecsScreenshots/Screenshot_20261027-154734.png",
-    title: "Custom Orders",
-    desc: "Visual pipeline from Draft to Cutting, Fitting, & Completed.",
-  },
-  {
-    src: "/SpecsScreenshots/Screenshot_20261027-154747.png",
-    title: "Order Detail View",
-    desc: "Production notes, target delivery dates, and client specs.",
-  },
-  {
-    src: "/SpecsScreenshots/Screenshot_20261027-154842.png",
-    title: "Production Status",
-    desc: "Keep tailoring teams aligned at every fitting milestone.",
-  },
-  {
-    src: "/SpecsScreenshots/Screenshot_20261027-155007.png",
-    title: "Storefront & Catalog",
-    desc: "Showcase signature styles and ready-to-wear collections.",
-  },
-  {
-    src: "/SpecsScreenshots/Screenshot_20261027-155034.png",
-    title: "Product Gallery",
-    desc: "High-resolution style catalog with pricing and variations.",
-  },
-  {
-    src: "/SpecsScreenshots/Screenshot_20261027-155051.png",
-    title: "Fabric & Inventory",
-    desc: "Keep track of yardage, fabric rolls, and trimming stock.",
-  },
-  {
-    src: "/SpecsScreenshots/Screenshot_20261027-155115.png",
-    title: "Material Allocation",
-    desc: "Link fabric bolts directly to ongoing bespoke orders.",
+    title: "Measurement Sizing Pad",
+    desc: "Fast, specialized numeric keypad tailored for entering neck, shoulder, sleeve, chest, and outseam specs.",
   },
   {
     src: "/SpecsScreenshots/Screenshot_20261027-155559.png",
-    title: "Financial Insights",
-    desc: "Real-time visibility into revenue, studio expenses, and profits.",
+    title: "Bespoke Order Creation",
+    desc: "Attach clients, due dates, design sketches, and assign specific tailors to each bespoke order.",
   },
   {
     src: "/SpecsScreenshots/Screenshot_20261027-155710.png",
-    title: "Expense Tracker",
-    desc: "Categorize threads, needles, machine servicing, and bills.",
+    title: "Fabrics, Sourcing & Pricing",
+    desc: "Track client-supplied fabrics, internal studio materials, total bills, and upfront deposit payments.",
   },
   {
     src: "/SpecsScreenshots/Screenshot_20261027-155734.png",
-    title: "Professional Invoices",
-    desc: "One-tap invoice generation to share via WhatsApp or PDF.",
+    title: "Production Pipeline Board",
+    desc: "Track active jobs moving across Draft, Cutting, Sewing, Fitting, and Final Delivery stages.",
   },
   {
     src: "/SpecsScreenshots/Screenshot_20261027-155748.png",
-    title: "Invoice Customizer",
-    desc: "Add deposits, pending balances, and studio bank accounts.",
+    title: "Order Task & Status Manager",
+    desc: "Granular control over internal production tasks, cutting status, sewing checkpoints, and delivery dates.",
   },
   {
     src: "/SpecsScreenshots/Screenshot_20261027-155808.png",
-    title: "Studio Settings",
-    desc: "Configure measurement units (inches/cm) and currency.",
-  },
-  {
-    src: "/SpecsScreenshots/Screenshot_20261027-155825.png",
-    title: "Subscription & Billing",
-    desc: "Standard & Business tiers designed to scale with your house.",
+    title: "Client Profile & Order History",
+    desc: "Unified view of client's total paid amount, unpaid balances, saved measurements, and active orders.",
   },
   {
     src: "/SpecsScreenshots/Screenshot_20261027-155917.png",
-    title: "Cloud Sync Status",
-    desc: "Instant local WatermelonDB caching with Supabase sync.",
+    title: "Invoices & Specs Specs Tab",
+    desc: "Quick access to all generated invoices, payment receipts, and historic measurement archives.",
+  },
+  {
+    src: "/SpecsScreenshots/Screenshot_20261027-155825.png",
+    title: "Professional Invoice Generator",
+    desc: "Branded PDF invoices with studio details, itemized breakdown, subtotal, deposits, and outstanding balance.",
+  },
+  {
+    src: "/SpecsScreenshots/Screenshot_20261027-155007.png",
+    title: "Fabric & Inventory Catalog",
+    desc: "Log fabrics, ready-to-wear pieces, accessories, cost prices, and retail selling rates.",
+  },
+  {
+    src: "/SpecsScreenshots/Screenshot_20261027-155034.png",
+    title: "POS Checkout & Store Orders",
+    desc: "Manage retail walk-ins with instant cart subtotal, shipping fees, partial/full payment, and pickup status.",
+  },
+  {
+    src: "/SpecsScreenshots/Screenshot_20261027-154747.png",
+    title: "Financial Insights & Profit Visibility",
+    desc: "Real-time analytics for gross revenue, tied-up inventory value, outstanding receivables, and net profit.",
+  },
+  {
+    src: "/SpecsScreenshots/Screenshot_20261027-154734.png",
+    title: "OPEX Expense Ledger",
+    desc: "Track operational expenditures including logistics, fuel, fabric sourcing, workshop maintenance, and utilities.",
   },
   {
     src: "/SpecsScreenshots/Screenshot_20261027-155945.png",
-    title: "Notification Center",
-    desc: "Upcoming fitting reminders, deadlines, and delivery alerts.",
+    title: "Direct Client Messaging",
+    desc: "In-app real-time communication with clients for fitting updates, style inspirations, and delivery notices.",
   },
   {
     src: "/SpecsScreenshots/Screenshot_20261027-160029.png",
-    title: "Quick Action Hub",
-    desc: "Speed up daily operations with single-tap shortcuts.",
+    title: "Fitting & Deadline Reminders",
+    desc: "Automated schedule reminders for order deadlines and fitting sessions to prevent production delays.",
   },
   {
-    src: "/SpecsScreenshots/Screenshot_20261027-160142.png",
-    title: "Dark & Light Experience",
-    desc: "Tailored for low-light cutting rooms and bright workshops.",
+    src: "/SpecsScreenshots/Screenshot_20261027-155051.png",
+    title: "Global Designer Directory",
+    desc: "Discover fashion ateliers, explore studios by city or country, and establish professional design contracts.",
+  },
+  {
+    src: "/SpecsScreenshots/Screenshot_20261027-155115.png",
+    title: "Verified Atelier Brand Profile",
+    desc: "Showcase signature bespoke collections, portfolio lookbooks, and studio location to verified clients.",
+  },
+  {
+    src: "/SpecsScreenshots/Screenshot_20261027-154648.png",
+    title: "Business & Team Settings",
+    desc: "Manage brand logo, unique @username, phone, official email, and multi-user workshop team permissions.",
+  },
+  {
+    src: "/SpecsScreenshots/Screenshot_20261027-154842.png",
+    title: "Subscription & Scaling Plans",
+    desc: "Standard and Business tiers supporting solo tailors up to high-volume multi-seat fashion houses.",
+  },
+  {
+    src: "/SpecsScreenshots/Screenshot_20261027-154512.png",
+    title: "Designer Workspace Hub",
+    desc: "Central security, profile preferences, and role switcher between Fashion Designer Mode and Client Hub.",
   },
 ];
 
@@ -147,54 +146,35 @@ export function AndroidPhoneFrame({
       onClick={onClick}
       className={`relative mx-auto cursor-pointer group transition-transform duration-300 select-none ${className}`}
     >
-      {/* Outer Phone Hardware Chasis */}
-      <div className="relative rounded-[42px] p-[10px] bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.15)] ring-1 ring-black/40">
-        {/* Subtle phone volume buttons */}
-        <div className="absolute -left-[13px] top-24 w-[3px] h-10 bg-slate-700 rounded-l-md opacity-80" />
-        <div className="absolute -left-[13px] top-38 w-[3px] h-10 bg-slate-700 rounded-l-md opacity-80" />
-        <div className="absolute -right-[13px] top-28 w-[3px] h-14 bg-slate-700 rounded-r-md opacity-80" />
+      {/* Outer Phone Hardware Chassis - Tight bezel, flush buttons */}
+      <div className="relative rounded-[26px] sm:rounded-[30px] p-[5px] bg-[#1a1c22] shadow-[0_18px_45px_-12px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.08)]">
+        {/* Physical hardware buttons directly flush against the bezel */}
+        <div className="absolute -left-[3px] top-20 w-[3px] h-8 bg-[#2d3139] rounded-l-sm" />
+        <div className="absolute -left-[3px] top-32 w-[3px] h-8 bg-[#2d3139] rounded-l-sm" />
+        <div className="absolute -right-[3px] top-24 w-[3px] h-11 bg-[#2d3139] rounded-r-sm" />
 
-        {/* Screen Bezel / Container */}
-        <div className="relative rounded-[32px] overflow-hidden bg-black aspect-[9/19.5] w-full">
-          {/* Android Punch Hole Camera */}
-          <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-black rounded-full z-20 flex items-center justify-center ring-1 ring-slate-800/80">
-            <div className="w-1.5 h-1.5 bg-[#001f3f]/80 rounded-full" />
-          </div>
-
-          {/* Android Status Bar */}
-          <div className="absolute top-0 inset-x-0 h-6 px-5 flex items-center justify-between text-[9px] font-semibold text-white/70 z-10 pointer-events-none">
-            <span>09:41</span>
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-400" />
-              <span>5G</span>
-              <span>100%</span>
-            </div>
-          </div>
-
-          {/* Screenshot Image */}
+        {/* Clean Screen Display - Edge-to-edge showing pure screenshot content */}
+        <div className="relative rounded-[22px] sm:rounded-[26px] overflow-hidden bg-black aspect-[720/1576] w-full">
           <Image
             src={src}
             alt={alt}
-            width={400}
-            height={866}
+            width={720}
+            height={1576}
             priority={priority}
-            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+            className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.01]"
           />
 
-          {/* Bottom Home Indicator Bar */}
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-28 h-1 bg-white/40 rounded-full z-20 pointer-events-none" />
-
           {/* Hover Overlay Hint */}
-          <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-30">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 text-slate-900 text-xs font-bold shadow-lg">
-              <Maximize2 className="w-3.5 h-3.5" /> Tap to Inspect
+          <div className="absolute inset-0 bg-slate-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 text-slate-900 text-xs font-bold shadow-lg">
+              <Maximize2 className="w-3.5 h-3.5 text-[#000066]" /> View Screen
             </span>
           </div>
         </div>
       </div>
 
       {title && (
-        <p className="text-center text-xs font-semibold text-slate-600 mt-3 truncate px-2">
+        <p className="text-center text-xs font-semibold text-slate-700 mt-2.5 truncate px-1">
           {title}
         </p>
       )}
@@ -207,7 +187,7 @@ export function SpecsScreenshotsCarousel() {
   const [isPaused, setIsPaused] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  // Triple screenshots array for perfectly continuous, seamless infinite scrolling
+  // Triple array for seamless infinite looping
   const infiniteScreenshots = [
     ...SPECS_SCREENSHOTS,
     ...SPECS_SCREENSHOTS,
@@ -220,12 +200,11 @@ export function SpecsScreenshotsCarousel() {
     if (!container) return;
 
     let animationFrameId: number;
-    const speed = 0.8; // px per tick
+    const speed = 0.8;
 
     const step = () => {
       if (!isPaused && container) {
         container.scrollLeft += speed;
-        // When scrolled past one full set of items, loop back seamlessly
         const singleSetWidth = container.scrollWidth / 3;
         if (container.scrollLeft >= singleSetWidth * 2) {
           container.scrollLeft -= singleSetWidth;
@@ -265,7 +244,7 @@ export function SpecsScreenshotsCarousel() {
   });
 
   return (
-    <div className="w-full relative overflow-hidden py-4">
+    <div className="w-full relative overflow-hidden py-2">
       {/* Scroll Marquee Container */}
       <div
         ref={scrollContainerRef}
@@ -273,7 +252,7 @@ export function SpecsScreenshotsCarousel() {
         onMouseLeave={() => setIsPaused(false)}
         onTouchStart={() => setIsPaused(true)}
         onTouchEnd={() => setIsPaused(false)}
-        className="flex items-center gap-6 md:gap-8 overflow-x-auto no-scrollbar scroll-smooth py-6 px-4 cursor-grab active:cursor-grabbing select-none"
+        className="flex items-center gap-5 md:gap-7 overflow-x-auto no-scrollbar scroll-smooth py-4 px-4 cursor-grab active:cursor-grabbing select-none"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",
@@ -284,7 +263,7 @@ export function SpecsScreenshotsCarousel() {
           return (
             <div
               key={idx}
-              className="flex-shrink-0 w-[210px] sm:w-[240px] md:w-[260px]"
+              className="flex-shrink-0 w-[200px] sm:w-[220px] md:w-[240px]"
             >
               <AndroidPhoneFrame
                 src={item.src}
@@ -298,8 +277,8 @@ export function SpecsScreenshotsCarousel() {
       </div>
 
       {/* Floating Instructions Pill */}
-      <div className="text-center mt-3">
-        <span className="inline-flex items-center gap-2 text-xs text-slate-500 bg-white/80 border border-slate-200/80 px-4 py-1.5 rounded-full shadow-sm">
+      <div className="text-center mt-2">
+        <span className="inline-flex items-center gap-2 text-xs text-slate-500 bg-white/80 border border-slate-200 px-4 py-1.5 rounded-full shadow-sm">
           <span>👈</span> Drag to scroll horizontally • Tap any phone to inspect in fullscreen <span>👉</span>
         </span>
       </div>
@@ -307,7 +286,7 @@ export function SpecsScreenshotsCarousel() {
       {/* Interactive Swipeable / Focus Phone Modal */}
       <AnimatePresence>
         {selectedIndex !== null && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
             {/* Modal Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -317,18 +296,18 @@ export function SpecsScreenshotsCarousel() {
               className="fixed inset-0 bg-slate-950/85 backdrop-blur-md"
             />
 
-            {/* Modal Body with Swipe support */}
+            {/* Modal Body with Touch Swiping */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ opacity: 0, scale: 0.92, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              className="relative z-10 w-full max-w-sm sm:max-w-md flex flex-col items-center"
+              exit={{ opacity: 0, scale: 0.92, y: 15 }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
+              className="relative z-10 w-full max-w-sm sm:max-w-md flex flex-col items-center my-auto"
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedIndex(null)}
-                className="absolute -top-12 right-0 sm:-right-4 text-white/80 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors"
+                className="absolute -top-12 right-0 text-white/80 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors"
                 aria-label="Close viewer"
               >
                 <X className="w-6 h-6" />
@@ -356,16 +335,16 @@ export function SpecsScreenshotsCarousel() {
                 key={selectedIndex}
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.3}
+                dragElastic={0.25}
                 onDragEnd={(e, { offset, velocity }) => {
-                  const swipeThreshold = 50;
-                  if (offset.x < -swipeThreshold || velocity.x < -400) {
+                  const swipeThreshold = 45;
+                  if (offset.x < -swipeThreshold || velocity.x < -300) {
                     handleNext();
-                  } else if (offset.x > swipeThreshold || velocity.x > 400) {
+                  } else if (offset.x > swipeThreshold || velocity.x > 300) {
                     handlePrev();
                   }
                 }}
-                className="w-[270px] sm:w-[310px] md:w-[330px] cursor-grab active:cursor-grabbing"
+                className="w-[260px] sm:w-[290px] md:w-[310px] cursor-grab active:cursor-grabbing"
               >
                 <AndroidPhoneFrame
                   src={SPECS_SCREENSHOTS[selectedIndex].src}
@@ -375,9 +354,9 @@ export function SpecsScreenshotsCarousel() {
               </motion.div>
 
               {/* Screen Description Bar */}
-              <div className="mt-5 text-center text-white space-y-1 px-4 max-w-sm">
+              <div className="mt-4 text-center text-white space-y-1 px-4 max-w-sm">
                 <div className="flex items-center justify-center gap-2">
-                  <h4 className="text-lg font-bold text-white">
+                  <h4 className="text-base sm:text-lg font-bold text-white">
                     {SPECS_SCREENSHOTS[selectedIndex].title}
                   </h4>
                   <span className="text-xs px-2 py-0.5 rounded-full bg-white/20 text-slate-300 font-medium">
@@ -388,8 +367,8 @@ export function SpecsScreenshotsCarousel() {
                   {SPECS_SCREENSHOTS[selectedIndex].desc}
                 </p>
 
-                {/* Mobile Swipe / Arrow Controls */}
-                <div className="flex items-center justify-center gap-4 pt-3">
+                {/* Mobile Navigation Controls */}
+                <div className="flex items-center justify-center gap-4 pt-2.5">
                   <button
                     onClick={handlePrev}
                     className="flex items-center gap-1 text-xs text-white/80 hover:text-white px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
@@ -414,4 +393,3 @@ export function SpecsScreenshotsCarousel() {
     </div>
   );
 }
-
