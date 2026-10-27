@@ -86,6 +86,17 @@ export default function ProductsPage() {
             A comprehensive, offline-first operating system engineered
             specifically for fashion designers, tailors, and their clientele.
           </p>
+
+          <div className="pt-2 flex justify-center">
+            <Button
+              onClick={() => setDownloadModalOpen(true)}
+              variant="brandRed"
+              className="py-6 px-8 text-base font-bold rounded-full shadow-lg shadow-[#990000]/30 flex items-center justify-center gap-2 hover:-translate-y-0.5 transition-all w-full sm:w-auto"
+            >
+              <Download className="w-5 h-5" />
+              Download Specs APK (v1.0.1)
+            </Button>
+          </div>
         </motion.div>
       </section>
 
@@ -295,17 +306,17 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* Tester Beta Callout Section */}
-      <section className="py-12 md:py-16 px-4 bg-gradient-to-b from-slate-50 via-white to-slate-50 border-b border-slate-200">
-        <div className="container mx-auto max-w-3xl">
+      {/* Tester Beta Download & Finishing Feedback Section */}
+      <section className="py-16 md:py-20 px-4 bg-gradient-to-b from-slate-50 via-white to-slate-50 border-b border-slate-200">
+        <div className="container mx-auto max-w-4xl space-y-8">
+          {/* Card 1: Direct Download */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={fadeInUp}
-            className="bg-white rounded-3xl p-6 sm:p-10 md:p-12 border border-slate-200/80 shadow-xl shadow-slate-900/5 text-center relative overflow-hidden"
+            className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-xl shadow-slate-900/5 text-center relative overflow-hidden"
           >
-            {/* Soft decorative gradient glow */}
             <div className="absolute top-0 right-1/2 translate-x-1/2 w-72 h-36 bg-[#990000]/10 blur-[70px] pointer-events-none rounded-full" />
 
             <div className="relative z-10 space-y-4">
@@ -322,15 +333,7 @@ export default function ProductsPage() {
                 Experience our offline-first measurement vault and studio management system. Install directly on your Android device and test our latest features.
               </p>
 
-              {/* Reward perk pill */}
-              <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-900 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold max-w-lg mx-auto text-left sm:text-center">
-                <span>🎁</span>
-                <span>
-                  <strong>Early Tester Reward:</strong> Get <strong>2 months FREE</strong> on the Specs Business Plan when we officially launch!
-                </span>
-              </div>
-
-              <div className="pt-3 max-w-md mx-auto">
+              <div className="pt-2 max-w-md mx-auto">
                 <Button
                   onClick={() => setDownloadModalOpen(true)}
                   variant="brandRed"
@@ -339,9 +342,48 @@ export default function ProductsPage() {
                   <Download className="w-5 h-5" />
                   Download Specs APK (v1.0.1)
                 </Button>
-                <p className="text-xs text-slate-400 mt-3">
+                <p className="text-xs text-slate-400 mt-2.5">
                   Direct Android APK (.apk) • Free early access • No credit card required
                 </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Card 2: Finished Testing Feedback */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={fadeInUp}
+            className="bg-gradient-to-br from-[#000066] to-[#000044] rounded-3xl p-6 sm:p-10 text-white relative overflow-hidden shadow-2xl border border-white/10"
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#990000] blur-[100px] opacity-30 rounded-full pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="space-y-3 text-center md:text-left max-w-xl">
+                <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-300/40 text-amber-200 px-3.5 py-1.5 rounded-full text-xs font-semibold">
+                  <span>🎁</span>
+                  <span>Claim 2 Months Free on Launch</span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+                  Finished Testing Specs?
+                </h3>
+                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                  Tell us what worked, what needs polish, and what features you&apos;d love to see next. Your feedback directly shapes our official launch release.
+                </p>
+              </div>
+
+              <div className="w-full md:w-auto flex-shrink-0">
+                <Link href="/feedback" className="block w-full">
+                  <Button
+                    variant="brandRed"
+                    className="w-full md:w-auto py-6 px-8 text-sm sm:text-base font-bold rounded-full shadow-lg shadow-[#990000]/40 flex items-center justify-center gap-2 hover:-translate-y-0.5 transition-all"
+                  >
+                    <MessageSquare className="w-4 h-4" />
+                    Submit Testing Feedback
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </motion.div>
