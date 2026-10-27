@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { Button } from "@/src/components/ui/Button";
+import { DownloadModal } from "@/src/components/ui/DownloadModal";
 import {
   Scissors,
   Database,
@@ -17,9 +19,12 @@ import {
   TrendingUp,
   WifiOff,
   Briefcase,
+  Download,
+  ExternalLink,
 } from "lucide-react";
 
 export default function ProductsPage() {
+  const [downloadModalOpen, setDownloadModalOpen] = useState(false);
   // --- Animation Variants ---
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -81,6 +86,38 @@ export default function ProductsPage() {
             A comprehensive, offline-first operating system engineered
             specifically for fashion designers, tailors, and their clientele.
           </p>
+
+          {/* Reward perk badge */}
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/20 via-amber-400/10 to-amber-500/20 border border-amber-400/40 text-amber-200 px-4 py-2 rounded-full text-xs md:text-sm font-semibold shadow-inner">
+            <span>🎁</span>
+            <span>Get <strong>2 Months Free</strong> Specs Business Plan on official launch after participating in the beta!</span>
+          </div>
+
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button
+              onClick={() => setDownloadModalOpen(true)}
+              variant="brandRed"
+              className="w-full sm:w-auto py-6 px-8 text-base font-bold rounded-full shadow-lg shadow-[#990000]/30 flex items-center justify-center gap-2 hover:-translate-y-0.5"
+            >
+              <Download className="w-5 h-5" />
+              Download Specs APK (v1.0.1)
+            </Button>
+
+            <a
+              href="https://forms.gle/t9vER3USHvmgM3d4A"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
+              <Button
+                variant="outline"
+                className="w-full sm:w-auto py-6 px-8 text-base font-semibold rounded-full bg-white/10 hover:bg-white/20 text-white border-white/30 hover:border-white flex items-center justify-center gap-2 hover:-translate-y-0.5"
+              >
+                <ExternalLink className="w-4 h-4 text-slate-300" />
+                Tester Feedback Form
+              </Button>
+            </a>
+          </div>
         </motion.div>
       </section>
 
@@ -290,6 +327,57 @@ export default function ProductsPage() {
         </div>
       </section>
 
+      {/* Tester Beta Callout Section */}
+      <section className="py-14 px-4 bg-gradient-to-r from-red-50 via-white to-red-50 border-b border-red-100">
+        <div className="container mx-auto max-w-4xl">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={fadeInUp}
+            className="bg-white rounded-2xl p-8 md:p-10 border border-red-100 shadow-xl shadow-red-900/5 text-center relative overflow-hidden"
+          >
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-[#990000] uppercase bg-red-100/60 px-3.5 py-1.5 rounded-full mb-4">
+              <Smartphone className="w-3.5 h-3.5 text-[#990000]" />
+              Android Beta Testing
+            </div>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-[#000066] mb-3">
+              Help Shape the Specs Experience
+            </h2>
+            <div className="inline-block bg-amber-50 border border-amber-200 text-amber-900 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold mb-4">
+              🎉 <strong>Tester Perk:</strong> Get <strong>2 months FREE</strong> on the Specs Business Plan when we officially launch after participating and sharing feedback!
+            </div>
+            <p className="text-slate-600 max-w-2xl mx-auto text-sm md:text-base leading-relaxed mb-8">
+              We&apos;re actively inviting designers, tailors, and fashion teams to test Specs v1.0.1 on Android. Install the build, test offline/online sync, and tell us how we can make it even better.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button
+                onClick={() => setDownloadModalOpen(true)}
+                variant="brandRed"
+                className="w-full sm:w-auto py-6 px-8 text-base font-bold rounded-full shadow-lg shadow-[#990000]/25 flex items-center justify-center gap-2 hover:-translate-y-0.5"
+              >
+                <Download className="w-5 h-5" />
+                Download Specs APK (v1.0.1)
+              </Button>
+              <a
+                href="https://forms.gle/t9vER3USHvmgM3d4A"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+              >
+                <Button
+                  variant="outline"
+                  className="w-full sm:w-auto py-6 px-8 text-base font-semibold rounded-full border-slate-300 hover:border-[#000066] flex items-center justify-center gap-2 hover:-translate-y-0.5"
+                >
+                  <ExternalLink className="w-4 h-4 text-[#990000]" />
+                  Submit Tester Feedback
+                </Button>
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* The Innovation Pipeline (Coming Soon) */}
       <section className="py-20 md:py-24 px-4 bg-[#000066] text-white">
         <div className="container mx-auto max-w-5xl">
@@ -388,6 +476,12 @@ export default function ProductsPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Download / Email Capture Modal */}
+      <DownloadModal
+        isOpen={downloadModalOpen}
+        onClose={() => setDownloadModalOpen(false)}
+      />
     </div>
   );
 }
