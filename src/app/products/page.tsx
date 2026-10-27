@@ -64,7 +64,7 @@ export default function ProductsPage() {
   return (
     <div className="flex flex-col min-h-screen font-sans bg-slate-50">
       {/* Hero Section */}
-      <section className="bg-[#000066] text-white py-24 md:py-32 px-4 relative overflow-hidden">
+      <section className="bg-[#000066] text-white pt-20 pb-16 md:pt-28 md:pb-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#000066] via-[#000044] to-[#990000]/20 opacity-80" />
 
         <motion.div
@@ -73,22 +73,31 @@ export default function ProductsPage() {
           variants={fadeInUp}
           className="container relative z-10 mx-auto max-w-5xl text-center space-y-6"
         >
-          <div className="inline-flex items-center gap-2 text-xs md:text-sm font-bold tracking-widest text-red-200 uppercase bg-white/10 px-4 py-1.5 rounded-full mb-4 border border-white/20">
+          <div className="inline-flex items-center gap-2 text-xs md:text-sm font-bold tracking-widest text-red-200 uppercase bg-white/10 px-4 py-1.5 rounded-full mb-2 border border-white/20">
             <span className="w-2 h-2 rounded-full bg-[#990000] animate-pulse"></span>
             Flagship Ecosystem
           </div>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
-            Meet{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">
-              Specs
-            </span>
-          </h1>
+
+          {/* Specs Logo in Hero */}
+          <div className="flex justify-center items-center">
+            <div className="relative p-2 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 shadow-2xl">
+              <Image
+                src="/specs-logo.jpg"
+                alt="Specs Logo"
+                width={130}
+                height={130}
+                className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-cover rounded-xl shadow-md"
+                priority
+              />
+            </div>
+          </div>
+
           <p className="text-base md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
             A comprehensive, offline-first operating system engineered
             specifically for fashion designers, tailors, and their clientele.
           </p>
 
-          <div className="pt-2 flex justify-center">
+          <div className="pt-2 flex flex-col items-center justify-center gap-2.5">
             <Button
               onClick={() => setDownloadModalOpen(true)}
               variant="brandRed"
@@ -97,8 +106,41 @@ export default function ProductsPage() {
               <Download className="w-5 h-5" />
               Download Specs APK (v1.0.1)
             </Button>
+            <a
+              href="#testing-feedback"
+              className="text-xs text-slate-300 hover:text-white underline underline-offset-4 transition-colors pt-1"
+            >
+              Scroll down to submit feedback ↓
+            </a>
           </div>
         </motion.div>
+      </section>
+
+      {/* App Screenshots Gallery Section (Immediately below Hero) */}
+      <section className="py-12 md:py-16 bg-gradient-to-b from-slate-100/70 via-slate-50 to-white border-b border-slate-200 overflow-hidden">
+        <div className="container mx-auto px-4 max-w-5xl text-center mb-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={fadeInUp}
+            className="space-y-2"
+          >
+            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-[#990000] uppercase bg-red-100/60 px-3.5 py-1.5 rounded-full">
+              <Smartphone className="w-3.5 h-3.5 text-[#990000]" />
+              Android Interface Preview
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#000066]">
+              Inside the Specs Mobile OS
+            </h2>
+            <p className="text-slate-600 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+              Explore live screens from our Android build—from client measurement intake and production pipelines to real-time financial dashboards.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Endless Marquee Phone Frames + Lightbox Modal */}
+        <SpecsScreenshotsCarousel />
       </section>
 
       {/* The Core Problem & Image Section */}
@@ -142,12 +184,13 @@ export default function ProductsPage() {
               </motion.p>
             </motion.div>
 
+            {/* Logo image hidden on mobile, visible on desktop */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
               variants={slideInRight}
-              className="relative mt-8 lg:mt-0"
+              className="relative mt-8 lg:mt-0 hidden lg:block"
             >
               <div className="absolute inset-0 bg-[#990000]/10 blur-3xl rounded-full transform scale-90 translate-y-4"></div>
               <Image
@@ -161,33 +204,6 @@ export default function ProductsPage() {
             </motion.div>
           </div>
         </div>
-      </section>
-
-      {/* App Screenshots Gallery Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-slate-100/70 via-slate-50 to-white border-y border-slate-200 overflow-hidden">
-        <div className="container mx-auto px-4 max-w-5xl text-center mb-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={fadeInUp}
-            className="space-y-3"
-          >
-            <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-[#990000] uppercase bg-red-100/60 px-3.5 py-1.5 rounded-full">
-              <Smartphone className="w-3.5 h-3.5 text-[#990000]" />
-              Android Interface Preview
-            </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#000066]">
-              Inside the Specs Mobile OS
-            </h2>
-            <p className="text-slate-600 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-              Explore live screens from our Android build—from client measurement intake and production pipelines to real-time financial dashboards.
-            </p>
-          </motion.div>
-        </div>
-
-        {/* Endless Marquee Phone Frames + Lightbox Modal */}
-        <SpecsScreenshotsCarousel />
       </section>
 
       {/* For Fashion Designers */}
@@ -379,11 +395,12 @@ export default function ProductsPage() {
 
           {/* Card 2: Finished Testing Feedback */}
           <motion.div
+            id="testing-feedback"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={fadeInUp}
-            className="bg-gradient-to-br from-[#000066] to-[#000044] rounded-3xl p-6 sm:p-10 text-white relative overflow-hidden shadow-2xl border border-white/10"
+            className="bg-gradient-to-br from-[#000066] to-[#000044] rounded-3xl p-6 sm:p-10 text-white relative overflow-hidden shadow-2xl border border-white/10 scroll-mt-24"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#990000] blur-[100px] opacity-30 rounded-full pointer-events-none" />
 

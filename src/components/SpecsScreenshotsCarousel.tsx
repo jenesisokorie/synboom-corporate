@@ -263,7 +263,7 @@ export function SpecsScreenshotsCarousel() {
           return (
             <div
               key={idx}
-              className="flex-shrink-0 w-[200px] sm:w-[220px] md:w-[240px]"
+              className="flex-shrink-0 w-[145px] sm:w-[175px] md:w-[200px]"
             >
               <AndroidPhoneFrame
                 src={item.src}
@@ -286,7 +286,7 @@ export function SpecsScreenshotsCarousel() {
       {/* Interactive Swipeable / Focus Phone Modal */}
       <AnimatePresence>
         {selectedIndex !== null && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
             {/* Modal Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -296,55 +296,70 @@ export function SpecsScreenshotsCarousel() {
               className="fixed inset-0 bg-slate-950/85 backdrop-blur-md"
             />
 
-            {/* Modal Body with Touch Swiping */}
+            {/* Modal Body: Mobile = column (info on top, phone below); Desktop = row (phone on left, info beside it) */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.92, y: 15 }}
+              initial={{ opacity: 0, scale: 0.94, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.92, y: 15 }}
+              exit={{ opacity: 0, scale: 0.94, y: 15 }}
               transition={{ duration: 0.22, ease: "easeOut" }}
-              className="relative z-10 w-full max-w-sm sm:max-w-md flex flex-col items-center my-auto"
+              className="relative z-10 w-full max-w-4xl flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 my-auto py-4"
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedIndex(null)}
-                className="absolute -top-12 right-0 text-white/80 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors"
+                className="absolute top-0 right-0 md:-top-10 md:-right-4 text-white/80 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors z-20"
                 aria-label="Close viewer"
               >
                 <X className="w-6 h-6" />
               </button>
 
-              {/* Prev / Next Chevrons (Desktop) */}
+              {/* Prev / Next Chevrons (Desktop - Floating at Screen Edges) */}
               <button
                 onClick={handlePrev}
-                className="hidden md:flex absolute -left-16 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 text-white items-center justify-center backdrop-blur-sm transition-all"
+                className="hidden lg:flex fixed left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 text-white items-center justify-center backdrop-blur-md transition-all shadow-xl z-20"
                 aria-label="Previous screenshot"
               >
-                <ChevronLeft className="w-6 h-6" />
+                <ChevronLeft className="w-7 h-7" />
               </button>
 
               <button
                 onClick={handleNext}
-                className="hidden md:flex absolute -right-16 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 text-white items-center justify-center backdrop-blur-sm transition-all"
+                className="hidden lg:flex fixed right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 text-white items-center justify-center backdrop-blur-md transition-all shadow-xl z-20"
                 aria-label="Next screenshot"
               >
-                <ChevronRight className="w-6 h-6" />
+                <ChevronRight className="w-7 h-7" />
               </button>
 
-              {/* Swipeable Phone Frame */}
+              {/* Mobile Info Bar (Rendered on top for mobile view) */}
+              <div className="md:hidden w-full text-center text-white space-y-1.5 pt-6 px-2">
+                <div className="flex items-center justify-center gap-2">
+                  <h4 className="text-base font-bold text-white">
+                    {SPECS_SCREENSHOTS[selectedIndex].title}
+                  </h4>
+                  <span className="text-[11px] px-2 py-0.5 rounded-full bg-white/20 text-slate-300 font-medium">
+                    {selectedIndex + 1} / {SPECS_SCREENSHOTS.length}
+                  </span>
+                </div>
+                <p className="text-xs text-slate-300 leading-relaxed max-w-xs mx-auto">
+                  {SPECS_SCREENSHOTS[selectedIndex].desc}
+                </p>
+              </div>
+
+              {/* Swipeable Phone Frame (Sized to fit viewport without bottom cut-off) */}
               <motion.div
                 key={selectedIndex}
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.25}
                 onDragEnd={(e, { offset, velocity }) => {
-                  const swipeThreshold = 45;
+                  const swipeThreshold = 40;
                   if (offset.x < -swipeThreshold || velocity.x < -300) {
                     handleNext();
                   } else if (offset.x > swipeThreshold || velocity.x > 300) {
                     handlePrev();
                   }
                 }}
-                className="w-[260px] sm:w-[290px] md:w-[310px] cursor-grab active:cursor-grabbing"
+                className="w-[210px] sm:w-[240px] md:w-[260px] lg:w-[280px] max-h-[75vh] cursor-grab active:cursor-grabbing flex-shrink-0"
               >
                 <AndroidPhoneFrame
                   src={SPECS_SCREENSHOTS[selectedIndex].src}
@@ -353,38 +368,67 @@ export function SpecsScreenshotsCarousel() {
                 />
               </motion.div>
 
-              {/* Screen Description Bar */}
-              <div className="mt-4 text-center text-white space-y-1 px-4 max-w-sm">
-                <div className="flex items-center justify-center gap-2">
-                  <h4 className="text-base sm:text-lg font-bold text-white">
-                    {SPECS_SCREENSHOTS[selectedIndex].title}
-                  </h4>
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-white/20 text-slate-300 font-medium">
-                    {selectedIndex + 1} / {SPECS_SCREENSHOTS.length}
+              {/* Desktop Details Panel (Beside the phone on desktop) */}
+              <div className="hidden md:flex flex-col text-left text-white space-y-4 max-w-sm lg:max-w-md bg-white/5 border border-white/10 backdrop-blur-md p-6 lg:p-8 rounded-3xl shadow-2xl">
+                <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-red-200 uppercase bg-white/10 px-3.5 py-1 rounded-full w-fit border border-white/15">
+                  <span className="w-2 h-2 rounded-full bg-[#990000] animate-pulse"></span>
+                  Specs Android OS Screen
+                </div>
+
+                <div>
+                  <div className="flex items-center justify-between gap-4 mb-1.5">
+                    <h4 className="text-xl lg:text-2xl font-extrabold text-white">
+                      {SPECS_SCREENSHOTS[selectedIndex].title}
+                    </h4>
+                    <span className="text-xs px-2.5 py-1 rounded-full bg-white/15 text-slate-200 font-bold shrink-0">
+                      {selectedIndex + 1} of {SPECS_SCREENSHOTS.length}
+                    </span>
+                  </div>
+                  <p className="text-sm lg:text-base text-slate-300 leading-relaxed">
+                    {SPECS_SCREENSHOTS[selectedIndex].desc}
+                  </p>
+                </div>
+
+                <div className="pt-2 border-t border-white/10 flex items-center justify-between">
+                  <span className="text-xs text-slate-400">
+                    Use arrow keys or click buttons to navigate
                   </span>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={handlePrev}
+                      className="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors"
+                      title="Previous"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={handleNext}
+                      className="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors"
+                      title="Next"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  {SPECS_SCREENSHOTS[selectedIndex].desc}
-                </p>
+              </div>
 
-                {/* Mobile Navigation Controls */}
-                <div className="flex items-center justify-center gap-4 pt-2.5">
-                  <button
-                    onClick={handlePrev}
-                    className="flex items-center gap-1 text-xs text-white/80 hover:text-white px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
-                  >
-                    <ChevronLeft className="w-4 h-4" /> Previous
-                  </button>
+              {/* Mobile Bottom Navigation Controls */}
+              <div className="md:hidden flex items-center justify-center gap-4 pt-1 text-white">
+                <button
+                  onClick={handlePrev}
+                  className="flex items-center gap-1 text-xs text-white/80 hover:text-white px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                >
+                  <ChevronLeft className="w-4 h-4" /> Previous
+                </button>
 
-                  <span className="text-[11px] text-slate-400">Swipe to flip</span>
+                <span className="text-[11px] text-slate-400">Swipe to flip</span>
 
-                  <button
-                    onClick={handleNext}
-                    className="flex items-center gap-1 text-xs text-white/80 hover:text-white px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
-                  >
-                    Next <ChevronRight className="w-4 h-4" />
-                  </button>
-                </div>
+                <button
+                  onClick={handleNext}
+                  className="flex items-center gap-1 text-xs text-white/80 hover:text-white px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                >
+                  Next <ChevronRight className="w-4 h-4" />
+                </button>
               </div>
             </motion.div>
           </div>
